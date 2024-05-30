@@ -1,0 +1,67 @@
+<template>
+    <template if:true={chkSns}>
+        <lightning-card title="Today's Chats" icon-name="utility:chat" class="chat-frame">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Contact">Contact</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Status">Status</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Agent">Agent</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={sessions} for:item="session">
+                        <tr key={session.recordId} class="slds-hint-parent" data-id={session.recordId}
+                            onclick={handleNavigate}>
+                            <td data-label="userName">
+                                <div class="slds-truncate" title={session.userName}>{session.userName}</div>
+                            </td>
+                            <td data-label="status_sesion">
+                                <div class="slds-truncate" title={session.status_sesion}>{session.status_sesion}</div>
+                            </td>
+                            <td data-label="agentName">
+                                <div class="slds-truncate" title={session.agentName}>{session.agentName}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-card>
+    </template>
+    <!-- <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Contact</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Title">Status</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Title">Agent</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={records} for:item="record">
+                    <tr key={record.id} data-id={record.id} onclick={handleNavigate}>
+                        <td>
+                            <div class="slds-truncate" title={record.Name}>{record.name}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title={record.Title}>{record.status}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title={record.Title}>{record.agent}</div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table> -->
+</template>

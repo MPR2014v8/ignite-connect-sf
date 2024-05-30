@@ -1,0 +1,112 @@
+<template>
+  
+  <template if:true={chkMsg}>
+      <lightning-card title="Chat" icon-name="utility:chat" class="chat-frame">
+      <div class="slds-grid slds-grid_vertical">
+        <div class="slds-col">
+          <template if:true={chkMsg}>
+            <!-- <lightning-button class="setup-button" icon-name="utility:setup" onclick={toggleDropdownSetup}>
+            </lightning-button> -->
+            <button class="slds-button slds-button_destructive slds-col" style="margin-left: 20px;" onclick={handleClosedClick}>Finish
+              Session</button>
+          </template>
+          <!-- <div class="dropdown-container">
+            <template if:true={isDropdownSetupOpen}>
+              <div class="dropdown-content">
+                <div class="slds-grid slds-wrap" style="width:100%; height:100%">
+                  <lightning-card title="Session Form">
+                    <div class="slds-m-around_medium slds-grid slds-grid_vertical">
+                      <button class="slds-button slds-button_destructive slds-col" onclick={handleSubmit}>Finish
+                        Session</button>
+                    </div>
+                  </lightning-card>
+                </div>
+              </div>
+            </template>
+          </div> -->
+        </div>
+        <div class="slds-col">
+          <section role="log" class="slds-chat chat-container" data-id="chatContainer">
+  
+            <ul class="slds-chat-list">
+              <template if:true={chkMsg}>
+                <template for:each={messages} for:item="chat">
+                  <li class={chat.s_class} key={chat.msg}>
+                    <div class="slds-chat-message">
+                      <span aria-hidden="true" class="slds-avatar slds-avatar_circle slds-chat-avatar">
+                        <abbr class="slds-avatar__initials slds-avatar__initials_inverse"
+                          title="Andy Martinez">{chat.display}</abbr>
+                      </span>
+                      <div class="slds-chat-message__body">
+                        <div class={chat.class}>
+                          <span>{chat.msg}</span>
+                        </div>
+                        <div class="slds-chat-message__meta" aria-label="said {chat.username} at {chat.time}">
+                          {chat.username} • {chat.time}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </template>
+              </template>
+              <template if:false={chkMsg}>
+                <p style="padding-left: 20px;">no message...</p>
+              </template>
+            </ul>
+          </section>
+        </div>
+      </div>
+  
+      <!-- <div class="slds-col" style="padding-left: 4px">
+        <div class="slds-p-around_medium lgc-bg ">
+          <lightning-button-icon icon-name="utility:chevronleft" variant="brand" alternative-text="previous"
+            style="margin-right: 5px;" onclick={handlePreviousMsgClick}></lightning-button-icon>
+          <lightning-button-icon icon-name="utility:chevronright" variant="brand" alternative-text="next"
+            onclick={handleNextMsgClick}></lightning-button-icon>
+        </div>
+      </div> -->
+  
+      <div class="slds-col input-container">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_7-of-12">
+            <div class="slds-form-element">
+              <div class="slds-form-element__control">
+                <input type="text" id="messageInput" data-name="messageInput" placeholder="Type your message…"
+                  class="slds-input" value="" onchange={handleMessage} oninput={handleMessage} onkeydown={handleKeyDown}
+                  required />
+              </div>
+            </div>
+          </div>
+          <div class="slds-col slds-size_2-of-12 ">
+            <!-- <lightning-button-menu alternative-text="Show menu" variant="border-filled" icon-name="utility:emoji"
+              onclick={toggleDropdown}>
+            </lightning-button-menu> -->
+            <lightning-button variant="border-filled" icon-name="utility:emoji" onclick={toggleDropdown}>
+            </lightning-button>
+          </div>
+          <div class="slds-col slds-size_3-of-12 slds-col_bump-right">
+            <lightning-button variant="brand" class="slds-button slds-button_brand button-send" data-recid="sendBtn"
+              data-id="Send" label="Send" onclick={handleSendClick}></lightning-button>
+          </div>
+        </div>
+      </div>
+      <div class="slds-col sticker-container">
+        <div class="dropdown-container">
+          <template if:true={isDropdownOpen}>
+            <div class="dropdown-content">
+              <div class="slds-grid slds-wrap" style="width:100%; height:100%">
+                <template for:each={stickers} for:item="sticker" for:index="index">
+                  <div key={sticker.sticker_id} class="menu-item fadein slds-col slds-size_1-of-6"
+                    onclick={handleStickerSend}>
+                    <img src={sticker.url} class="sticker-image" alt={sticker.sticker_id}>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </lightning-card>
+    </template>
+
+</template>

@@ -1,0 +1,36 @@
+<template>
+  <article class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <img src={lineIcon} alt="lineIcon" class="customIcon" />
+          <span class="slds-assistive-text">Informations</span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title">
+            <span>Informations</span>
+          </h2>
+        </div>
+      </header>
+    </div>
+    <div class="slds-card__body">
+      <template lwc:if={lineProfile.userId}>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+          <div class="slds-col">
+            <img
+              alt="Person name"
+              src={lineProfile.profileUrl}
+              class="customImage"
+            />
+          </div>
+          <div class="slds-col">
+            <h2 class="slds-card__header-title">{lineProfile.displayName}</h2>
+          </div>
+          <div class="slds-col">
+            <span class=""> {lineProfile.statusMessage} </span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </article>
+</template>

@@ -1,0 +1,118 @@
+.customIcon {
+  width: 40px;
+}
+
+.customImage {
+  border-radius: 50%;
+  width: 160px;
+  height: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.customBackground {
+  background-color: #06c775;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile .name {
+  font-weight: bold;
+}
+
+.chat-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: auto;
+  height: 300px;
+  padding: 10px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow-y: scroll;
+}
+
+
+.head-container {
+  padding-left: 20px;
+}
+
+.input-container {
+  padding-left: 20px;
+}
+
+.button-send {
+  margin-left: 5px;
+  width: 80%;
+}
+
+.chat-frame {
+  height: 480px;
+}
+
+.fadein img {
+  opacity: 0.5;
+  transition: 0.25s ease;
+}
+
+.fadein img:hover {
+  opacity: 1;
+  transition: 0.25s ease;
+}
+
+/* stickerDropdown.css */
+.dropdown-container {
+  position: relative;
+  display: flex;
+}
+
+.dropdown-content {
+
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 1;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sticker-item {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.sticker-image {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.setup-button {
+  border: none;
+  padding: 10px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: none;
+  box-shadow: none;
+}
